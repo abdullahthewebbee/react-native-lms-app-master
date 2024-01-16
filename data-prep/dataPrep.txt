@@ -1,0 +1,198 @@
+SOURCE :{
+"code": "ONLINE",
+"name": "Online",
+"type": "SOURCE"
+},
+{
+"code": "NEWSPAPER",
+"name": "Newspaper",
+"type": "SOURCE"
+},
+{
+"code": "WEB",
+"name": "Web",
+"type": "SOURCE"
+}],
+
+Tenure:[
+{"code":"LT1Y","name":"Less Than 1 Year","type":"TENURE"},
+{"code":"LT6M","name":"Less Than 6 Month","type":"TENURE"},
+{"code":"LTI","name":"Not Sure","type":"TENURE"},
+{"code":"LTM","name":"Less Than 1 Month","type":"TENURE"}],
+
+COUNTRY:
+[
+{"code":"CND","name":"Canada","type":"COUNTRY"},
+{"code":"IND","name":"India","type":"COUNTRY"},
+{"code":"USA","name":"United States","type":"COUNTRY"},
+{"code":"VTN","name":"Viet Nam","type":"COUNTRY"}],
+
+BU:
+[
+{"code":"AMS","name":"AMS ","type":"BU"},
+{"code":"AMT","name":"AMT ","type":"BU"},
+{"code":"ART","name":"Air-Tech ","type":"BU"},
+{"code":"ATL","name":"Atlas ","type":"BU"},
+{"code":"BKF","name":"Brookfield ","type":"BU"},
+{"code":"CAM","name":"Cameca ","type":"BU"},
+{"code":"CR","name":"Creaform","type":"BU"},
+{"code":"CTS","name":"CTS ","type":"BU"},
+{"code":"EDA","name":"EDAX ","type":"BU"},
+{"code":"EPI","name":"E & PI ","type":"BU"},
+{"code":"LND","name":"Land ","type":"BU"},
+{"code":"MIC","name":"Micropoise ","type":"BU"},
+{"code":"PR","name":"Precitech","type":"BU"},
+{"code":"PRP","name":"Prog.Power ","type":"BU"},
+{"code":"SMP","name":"SMP ","type":"BU"},
+{"code":"SP","name":"Spectro ","type":"BU"},
+{"code":"STC","name":"STC ","type":"BU"},
+{"code":"VRI","name":"VRI ","type":"BU"},
+{"code":"ZY","name":"Zygo","type":"BU"}],
+
+CURRENCY:[{"code":"INR","name":"INR","type":"CURRENCY"},{"code":"USD","name":"USD","type":"CURRENCY"}],
+STATE:[{"code":"KAR","name":"KARNATAKA","type":"IND_STATE"},{"code":"MAH","name":"MAHARASHTRA","type":"IND_STATE"},{"code":"PUN","name":"PUNJAB","type":"IND_STATE"},
+{{"code":"ALA","name":"Alabama","type":"USA_STATE"}
+,{"code":"ALK","name":"Alaska","type":"USD_STATE"}],
+INDUSTRY:[{"code":"QLY","name":"Quality","type":"INDUSTRY"},{"code":"ENGG","name":"Engineering","type":"INDUSTRY"} ]
+
+
+
+Login
+http://52.66.164.208:8080/lmsApp-0.1.0/login
+{ "userName" : "a", "password" : "a" }
+{"accessToken":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyMiIsImlhdCI6MTU2NjYwODkzMCwiZXhwIjoxNTY3MjEzNzMwfQ.D_KjSIa5L18olEVW8gyywGdqOEGdAXcqcNLW451MYupmwHvZiGus4tvBgU3Z7lSmjnLW-82BSzO5wxQ2r6QFdQ","tokenType":"Bearer","userInfo":{"policies":{"salesRepList":"DISABLE","userList":"SHOW"},"userId":22,"userName":"y","userDisplayName":"Thomas","businessUnit":"SP","roles":["ADMIN"]}}
+userInfo.userDisplayName
+
+
+
+User Listing
+http://52.66.164.208:8080/lmsApp-0.1.0/users
+[{"userId":2,"userName":"sbamane","enabled":true,"email":null},{"userId":3,"userName":"syadav","enabled":true,"email":null},{"userId":5,"userName":"syadav01","enabled":true,"email":null},{"userId":7,"userName":"syadav02","enabled":true,"email":null},{"userId":8,"userName":"shiv.orian@gmail.com","enabled":true,"email":null},{"userId":9,"userName":"abc","enabled":true,"email":"a@b.com"}]
+
+
+
+Lead Creation
+http://52.66.164.208:8080/lmsApp-0.1.0/rootlead 
+{
+  "source": "WEB",
+  "custName": "CM TEck",
+  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, w",
+  "tenure": "LT1Y",
+  "leadContact": {
+    "name": "Mr K Murhty",
+    "email": "kmurhty@cmtek.com",
+    "phoneNumber": "9764007637",
+    "country": "IND",
+    "state": "KAR"
+  },
+  "leadsSummaryRes": {
+    "businessUnits": [
+      "ART",
+      "ATL"
+    ],
+    "budget":"12000",
+    "currency":"USD",
+    "salesRep": "Thomas",
+    "industry": "QLY"
+  },
+  "deleted": false,
+  "creatorId": "22",
+  "creationDate": "2019-06-04"
+}
+
+POST http://localhost:8080/marketIntelligence/{id}
+
+{
+"id" : 4,
+  "miInfoList" : [{
+    "info" : "info4"
+  }],
+  "rootLead" : {
+    "custName" : "shivashu4"
+  }
+}
+
+Create User 
+http://52.66.164.208:8080/lmsApp-0.1.0/user
+{
+  "userName": "y", 
+  "password":"y",
+  "email":"y@b.com" ,
+  "userDisplayName":"Thomas",
+  "businessUnit":"SP",
+  "roles":[
+  "ADMIN"
+  ]
+}
+
+ "userName": "suresh@ametek.com", 
+  "password":"y",
+
+
+POST -- search capabilities
+http://52.66.164.208:8080/lmsApp-0.1.0/leads
+{
+ 
+  "custName": "CM"
+}
+
+
+leads Details
+http://52.66.164.208:8080/lmsApp-0.1.0/lead/4
+
+{"id":4,"source":"WEB","custName":"CM TEck","description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, w","leadContact":{"id":14,"name":"Mr K Murhty","email":"kmurhty@cmtek.com","phoneNumber":"9764007637","state":"KAR","country":"IND","designation":null},"leadsSummaryRes":{"businessUnits":["ART"],"rootLeadId":5,"salesRep":"Thomas","industry":null,"budget":12999.0,"currency":"USD"},"updateDate":null,"updatorId":0,"creationDate":"2019-06-04","inactiveDuration":0,"tenure":"LT1Y","status":"ACK","deleted":false,"message":null,"creatorId":22}
+
+
+Update Lead
+http://52.66.164.208:8080/lmsApp-0.1.0/lead/4
+{
+  "id":4,
+  "leadsSummaryRes": {
+    "budget":"12999",
+    "currency":"USD"
+  },
+  "status":"ACK"
+  
+}
+
+
+
+COPY DATA FROM 1 TABLE TO ANOTHER
+ insert into ref_data (code, name, type) select * from REF_DATA;
+
+ drop table LEADS;
+ drop table LEAD_CONTACT;
+ drop table MI;
+ drop table MI_INFO;
+ drop table REF_DATA;
+ drop table ROOT_LEAD;
+ drop table USERS;
+ drop table USER_ROLE;
+
+ALTER TABLE leads RENAME TO LEADS;
+ALTER TABLE lead_contact RENAME TO LEAD_CONTACT;
+ALTER TABLE mi RENAME TO MI;
+ALTER TABLE mi_info RENAME TO MI_INFO;
+ALTER TABLE ref_data RENAME TO REF_DATA;
+ALTER TABLE root_lead RENAME TO ROOT_LEAD;
+ALTER TABLE users RENAME TO USERS;
+ALTER TABLE user_role RENAME TO USER_ROLE;
+ 
+  
+  
+  
+  
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
